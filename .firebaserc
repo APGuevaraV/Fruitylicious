@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fruitylicious-992c3": {
+      "hosting": {
+        "fruitylicious": [
+          "fruitylicious-992c3"
+        ]
+      }
+    }
+  }
+}

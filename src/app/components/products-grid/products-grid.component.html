@@ -1,1 +1,22 @@
-<p>products-grid works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card-columns">
+
+                <div class="card " 
+                    *ngFor="let product of products">
+                    <img class="card-img-top" 
+                            [src]="product.image" [alt]="product.name">
+                    <div class="card-body">
+                        <h4 class="card-title">{{product.name}}</h4>
+                        <p class="card-text">{{product.desc}}</p>
+                        <span class="badge badge-success">s/.{{product.price}}</span>
+                        <button  class="btn btn-primary btn-block mt-2">Comprar</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Producto } from '../../interfaces/producto.interface';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  products:Producto[]
+  constructor(private db:AngularFirestore) { }
 
   ngOnInit(): void {
+    this.db.collection('productos').valueChanges()
+    .subscribe( (res:Producto[])=>{
+      this.products = res;
+      console.log(this.products);
+    })
   }
 
 }
