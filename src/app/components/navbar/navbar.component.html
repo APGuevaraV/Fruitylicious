@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <a class="navbar-brand" href="#">
+        <img src="assets/fruits.png" alt="" width="30" height="30">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav flex-row w-100">
+            <li class="nav-item  mr-auto" routerLinkActive ="active">
+                <a class="nav-link" [routerLink]="['/home']" >Fruitylicious </a>
+            </li>
+            <li class="nav-item px-2" routerLinkActive =" active">
+                <a class="nav-link" [routerLink]="['/products']">Productos</a>
+            </li>
+            <li class="nav-item px-2" routerLinkActive =" active">
+                <a class="nav-link btn btn-outline-success" [routerLink]="['/login']">Log In</a>
+            </li>
+        </ul>
+        
+    </div>
+</nav>
