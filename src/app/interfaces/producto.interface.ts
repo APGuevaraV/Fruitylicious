@@ -8,9 +8,8 @@ export interface Producto{
     
 }
 
-export interface Usuario{
-    id:string;
-    name:string;
+export class Usuario{
+    id?:string;
     email:string;
     password:string;
 }

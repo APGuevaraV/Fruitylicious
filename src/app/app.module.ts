@@ -13,6 +13,9 @@ import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { FruitserviceService } from './services/fruit.service';
+import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 @NgModule({
@@ -21,15 +24,19 @@ import { ProductsComponent } from './pages/products/products.component';
     HomeComponent,
     LoginComponent,
     ProductsComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [
+    FruitserviceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

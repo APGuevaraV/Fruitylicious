@@ -7,15 +7,28 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav flex-row w-100">
+        <ul class="navbar-nav  w-100">
             <li class="nav-item  mr-auto" routerLinkActive ="active">
                 <a class="nav-link" [routerLink]="['/home']" >Fruitylicious </a>
             </li>
-            <li class="nav-item px-2" routerLinkActive =" active">
+            <li *ngIf="fruitService.isAutenthicated"
+                class="nav-item " routerLinkActive =" active">
                 <a class="nav-link" [routerLink]="['/products']">Productos</a>
+            </li >
+            <li *ngIf="!fruitService.isAutenthicated"
+                class="nav-item " routerLinkActive =" active">
+                <a class="nav-link btn btn-outline-success mr-1" [routerLink]="['/login']">Sign In</a>
             </li>
-            <li class="nav-item px-2" routerLinkActive =" active">
-                <a class="nav-link btn btn-outline-success" [routerLink]="['/login']">Log In</a>
+            <li *ngIf="!fruitService.isAutenthicated"
+                class="nav-item" routerLinkActive =" active">
+                <a class="nav-link btn btn-outline-success mr-1" [routerLink]="['/signup']">Sign up</a>
+                
+            </li >
+            <li *ngIf="fruitService.isAutenthicated" 
+                class="nav-item" routerLinkActive =" active">
+                <a class="nav-link btn btn-outline-danger mr-1" 
+                (click)="logOut()">Log Out</a>
+
             </li>
         </ul>
         
