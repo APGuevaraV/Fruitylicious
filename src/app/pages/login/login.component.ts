@@ -22,10 +22,20 @@ export class LoginComponent implements OnInit {
   }
 
   signInGoogle(){
-    this.fruitService.signInGoogle();
-    this.router.navigateByUrl('/home')
+    console.log('entró por google');
+    this.fruitService.signInGoogle()
+    .then(resp=>{
+      console.log(resp);
+      this.router.navigateByUrl('/home')
+    })
   }
   signInUserAndPass(form:NgForm){
+
+    if (form.invalid) {
+      Object.values(form.controls).forEach(control=>{
+        control.markAsTouched();
+      })
+    }else{
       console.log('submit disparado');
       this.fruitService.signInUserAndPass(this.usuario)
       .then( userCredentials =>{
@@ -36,6 +46,9 @@ export class LoginComponent implements OnInit {
       .catch(err =>{
         console.log(err);
       })
+
+    }
+      
       
   }
 

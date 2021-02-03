@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   logOut(){
     this.fruitService.logout();
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('login');
   }
 
 }

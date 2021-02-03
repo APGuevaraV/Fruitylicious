@@ -8,24 +8,33 @@
                     #Form="ngForm">
                 <div class="form-group">
                   <input name="email"
-                        [(ngModel)]="usuario.email"                     
-                        type="email" 
                         class="form-control"
+                        type="email" 
+                        [class.is-invalid]="email.invalid && email.touched"
+                        [(ngModel)]="usuario.email"                     
                         placeholder="example@example.com"
-                        required>
-                  <small  class="form-text text-muted">
-                      We'll never share your email with anyone else.
+                        required
+                        #email="ngModel">
+                  <small  *ngIf="email.invalid && email.touched"
+                        class="form-text text-danger">
+                      Ingrese usuario válido
                   </small>
 
                 </div>
                 <div class="form-group">
                   <input name="password"
-                        [(ngModel)]="usuario.password"                      
+                        [(ngModel)]="usuario.password" 
+                        [class.is-invalid]="pass.invalid && pass.touched"                     
                         type="password" 
                         required
                         minlength="6"
                         class="form-control"
-                        placeholder="password">
+                        placeholder="password"
+                        #pass="ngModel">
+                    <small  *ngIf="pass.invalid && pass.touched"
+                            class="form-text text-danger">
+                            Contraseña de 6 caracteres
+                    </small>
                 </div>
                 <div class="row">
                     <div class="col">

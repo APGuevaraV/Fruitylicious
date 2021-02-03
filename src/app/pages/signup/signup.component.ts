@@ -20,12 +20,21 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(form:NgForm){
-    this.fruitService.signUp(this.usuario)
+
+    if (form.invalid) {
+      Object.values(form.controls).forEach(control =>{
+        control.markAsTouched();
+      })
+    }else{
+      this.fruitService.signUp(this.usuario)
     .then(userCredentials =>{
       form.reset();
       console.log('Usuario creado');
       this.router.navigateByUrl('/home')
     })
+
+    }
+    
     
   }
 

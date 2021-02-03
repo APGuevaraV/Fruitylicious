@@ -39,7 +39,7 @@ export class FruitserviceService {
   }
 
   signInGoogle(){
-    this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   signInUserAndPass(user:Usuario){
